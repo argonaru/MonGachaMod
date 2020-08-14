@@ -58,10 +58,12 @@ Game.functions = {
 			if(Object.keys(result).length < 1){
 				Game.global_vars.player = {
 					"level" : 0,
-					"energy" : 300,
-					"currency" : 1000
+					"energy" : 20,
+					"currency" : 300
 				}
 				Game.global_vars.scene = {};
+				Game.global_vars.scene_dat.battle.highest_zone = 0;
+				Game.global_vars.scene_dat.battle.highest_map = 0;
 				Game.global_vars.time = date.getTime();
 			}else{
 				//Game.global_vars = result;
