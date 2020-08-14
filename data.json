@@ -1,0 +1,95 @@
+{
+	"waifus" : [
+		{
+			"name" : "Empty",
+			"rating" : "E",
+			"type" : "waifu",
+			"level" : 0,
+			"info" : "this is a meta data card",
+			"card_image" : "0000.png",
+			"sprite" : "0000",
+			"stats" : {
+				"strength" : 0,
+				"accuracy" : 0,
+				"evasion" : 0,
+				"defense" : 0,
+				"health" : 0
+			}
+		},
+		{
+			"name" : "Britski Common",
+			"rating" : "C",
+			"type" : "waifu",
+			"level" : 1,
+			"info" : "this is a commom britski card",
+			"card_image" : "0001.png",
+			"sprite" : "0001",
+			"stats" : {
+				"strength" : 5,
+				"accuracy" : 4,
+				"evasion" : 3,
+				"defense" : 5,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Dazed Esquoe",
+			"rating" : "C",
+			"type" : "waifu",
+			"level" : 1,
+			"info" : "this is a common dazes esquoe",
+			"card_image" : "0003.png",
+			"sprite" : "0003",
+			"stats" : {
+				"strength" : 5,
+				"accuracy" : 3,
+				"evasion" : 4,
+				"defense" : 4,
+				"health" : 20
+			}
+		}
+	],
+	"monsters" : [
+		{
+			"name" : "Crab",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"card_image" : "0001.png",
+			"sprite" : "0001",
+			"stats" : {
+				"strength" : 4,
+				"accuracy" : 2,
+				"evasion" : 2,
+				"defense" : 1,
+				"health" : 20
+			}
+		}
+	],
+	"items" : [
+		{
+			"name" : "Common Stick",
+			"type" : "item",
+			"rating" : "E",
+			"info" : "this is a common stick",
+			"card_image" : "0002.png"
+		}
+	],
+	"recipes" : [
+		{
+			"requires" : ["Common Stick","Britski Common"],
+			"result" : "Britski Common"
+		}
+	],
+	"monster_drops" : [
+		{
+			"monster" : "Crab",
+			"drops" : ["Common Stick"]
+		},
+		{
+			"monster" : "Large Crab",
+			"drops" : ["Common Stick"]
+		}
+	]
+}

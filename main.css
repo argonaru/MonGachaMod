@@ -1,0 +1,298 @@
+#gacha_container{
+	width: 700px;
+    height: 600px;
+    background: grey;
+    position: absolute;
+    left: calc(50% - 400px);
+    top: calc(50% - 300px);
+    pointer-events: auto;
+}
+
+#gacha_tab_buttons{
+	display: flex;
+	flex-direction: column;
+}
+
+#gacha_tab_buttons button{
+	height: 50px;
+    margin: 10px;
+    background: #0c0a314d;
+    border: 3px solid #423a3a82;
+    border-radius: 5px;
+}
+
+#gacha_battle_zone{
+	position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 250px;
+    background: url(../../plugins/gachamod/assets/screens/deck.png);
+
+}
+
+#gacha_main_screen{
+	left: 0;
+    height: 350px;
+    width: 600px;
+    background: red;
+    position: absolute;
+    bottom: 0;
+}
+
+#gacha_tab_buttons{
+	height: 350px;
+    background: green;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+}
+
+#craft_card_container #card_holder{
+	margin-left: 120px;
+    margin-top: 40px;
+    display: flex;
+}
+
+#craft_card_container #card_holder .cards{
+	width:120px;
+	height:180px;
+	background:gray;
+}
+
+#craft_card_container #gacha_craft_button{
+	width: 300px;
+    height: 60px;
+    margin-left: 150px;
+    margin-top: 20px;
+    color: white;
+    background: green;
+    border: 3px white solid;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    bottom: 45px;
+}
+
+#shopping_window .cards{
+	height: 60px;
+}
+
+#shopping_window #shopkeeper_inv{
+	display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 80px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#shopping_window #player_inv{
+	display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 80px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#shopping_window .card_in_view{
+    position: absolute;
+    margin-left: calc(50% - 75px);
+    margin-top: 10px;
+}
+
+#shopping_window .card_in_view .cards{
+	height: 200px;
+}
+
+#shopping_window .card_in_view div{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #5f5c5c;
+    background: white;
+    border-radius: 5px;
+}
+
+#shopping_window #cost_balance{
+	position: absolute;
+    bottom: 60px;
+    left: calc(50% - 100px);
+    width: 200px;
+    text-align: center;
+    background: white;
+    border-radius: 5px;
+}
+
+#shopping_window button{
+	position: absolute;
+}
+
+#shopping_window button.sell_button{
+    left: 160px;
+    bottom: 56px;
+}
+
+#shopping_window button.buy_button{
+    right: 200px;
+    top: 100px;
+}
+
+#gacha_main_screen #gacha_map{
+	height: 350px;
+}
+
+#gacha_battle_zone #battle_map{
+	height: 250px;
+}
+
+#gacha_battle_zone #battle_map #gacha_battle_character_container{
+	height: 250px;
+    width: 50%;
+    position: absolute;
+}
+
+#gacha_battle_zone #battle_map #gacha_battle_enemy_container{
+	height: 250px;
+    width: 50%;
+    position: absolute;
+}
+
+.gacha_sprite{
+	position: absolute;
+}
+
+.gacha_sprite img{
+	height: 90px;
+	border-radius: 20px;
+	border: #ffffff00 dotted 4px;
+}
+
+.gacha_sprite .gacha_sprite_health{
+	background: #595d5973;
+    position: absolute;
+    top: 3px;
+    width: 70px;
+    left: calc(50% - 35px);
+    height: 10px;
+}
+
+#gacha_battle_zone .card_inventory{
+	display: grid;
+    grid-template-columns: repeat(15, auto);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    max-height: 250px;
+    overflow-y: scroll;
+    width: calc( 100% - 20px);
+}
+
+#gacha_battle_zone .card_inventory .card_holder .cards{
+	height: 60px;
+	position: absolute;
+}
+
+#gacha_battle_zone .card_inventory .card_holder{
+	height: 60px;
+}
+
+#gacha_end_battle_screen{
+	background: green;
+    width: 300px;
+    height: 120px;
+    margin-top: 100px;
+    margin-left: calc(50% - 150px);
+    display: flex;
+    flex-direction: column;
+}
+
+#gacha_end_battle_screen div{
+	font-size: 25px;
+    text-align: center;
+    margin: 27px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#gacha_end_battle_screen button{
+	background: #c1b070;
+    border: 5px solid grey;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#party_card_container #card_holder{
+	margin-left: 75px;
+	margin-top: 50px;
+	display: flex;
+}
+
+#party_card_container #card_holder .cards{
+	width: 90px;
+	background:gray;
+}
+
+#party_card_container #gacha_party_save_button{
+	width: 300px;
+    height: 60px;
+    margin-left: 150px;
+    margin-top: 20px;
+    color: white;
+    background: green;
+    border: 3px white solid;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+#gacha_open_button{
+	width: 40px;
+    height: 40px;
+    pointer-events: auto;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+#gacha_player_tab{
+	height: 20px;
+    width: 100%;
+    background: #8184819e;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+
+#gacha_player_tab cont{
+	margin: auto;
+	font-size: 12px;
+    text-align: center;
+}
+
+#gacha_player_tab cont img{
+	width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+#gacha_main_screen div #escape_button{
+	position: absolute;
+    bottom: 45px;
+    left: 25px;
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(0deg, #842d0c, #f3d918);
+    border: 2px #00000087 solid;
+    border-radius: 5px;
+}
+
+.card_holder .cover{
+	height: 60px;
+	position:absolute;
+	width: 40px;
+	background: #ffffff9e;
+}
+
