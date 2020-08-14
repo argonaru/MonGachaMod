@@ -52,34 +52,61 @@ Game.functions = {
 		return string;
 	},
 	Init(){
-		$.getJSON(modAPI.path+"/plugins/gachamod/save.json", function(result){
-			let date = new Date();
-			// if the file is empty
-			if(Object.keys(result).length < 1){
-				Game.global_vars.player = {
-					"level" : 0,
-					"energy" : 20,
-					"currency" : 300
-				}
-				Game.global_vars.scene = {};
-				Game.global_vars.scene_dat.battle.highest_zone = 0;
-				Game.global_vars.scene_dat.battle.highest_map = 0;
-				Game.global_vars.time = date.getTime();
-			}else{
-				//Game.global_vars = result;
-				Game.global_vars.player = result.player;
-				if(result.time != 0) Game.global_vars.player.energy += Math.floor((date.getTime() - result.time) / 360000) * 100;
-				Game.global_vars.cards = Game.functions.ApplyCardClass(result.cards);
-				Game.global_vars.time = date.getTime();
-				Game.global_vars.scene_dat.battle.highest_map = result.highest_map;
-				Game.global_vars.scene_dat.battle.highest_zone = result.highest_zone;
+		let date = new Date();
+
+		let get_new_cards = false;
+
+		let new_func = function(){
+			Game.global_vars.player = {
+				"level" : 0,
+				"energy" : 20,
+				"currency" : 300
 			}
-		});
+			Game.global_vars.scene_dat.battle.highest_zone = 0;
+			Game.global_vars.scene_dat.battle.highest_map = 0;
+			Game.global_vars.time = date.getTime();
+			try{
+				Game.global_vars.cards = Game.functions.ApplyCardClass([
+				Game.functions.GetCard("Britski Common"),
+				Game.functions.GetCard("Britski Common")
+				]);
+			}catch(e){
+
+			}
+			get_new_cards = true;
+		}
+
+		try{
+			$.getJSON(modAPI.path+"/plugins/gachamod/save.json", function(result, err){
+				
+				// if the file is empty
+				if(err || Object.keys(result).length < 1){
+					console.log("creating new save data");
+					new_func();
+				}else{
+						//Game.global_vars = result;
+						Game.global_vars.player = result.player;
+						if(result.time != 0) Game.global_vars.player.energy += Math.floor((date.getTime() - result.time) / 360000) * 100;
+						Game.global_vars.cards = Game.functions.ApplyCardClass(result.cards);
+						Game.global_vars.time = date.getTime();
+						Game.global_vars.scene_dat.battle.highest_map = result.highest_map;
+						Game.global_vars.scene_dat.battle.highest_zone = result.highest_zone;
+				}
+			});
+		}catch(e){
+			new_func();
+		}
 
 		$.getJSON(modAPI.path+"/plugins/gachamod/data.json", function(result){
 			Game.global_vars.card_dictionary = Game.functions.ApplyCardClass(result.waifus.concat(result.monsters).concat(result.items));
 			Game.global_vars.recipes = result.recipes;
 			Game.global_vars.monster_drops = result.monster_drops;
+			if(get_new_cards){
+				Game.global_vars.cards = Game.functions.ApplyCardClass([
+				Game.functions.GetCard("Britski Common"),
+				Game.functions.GetCard("Britski Common")
+				]);
+			}
 		});
 	},
 	Save(){
