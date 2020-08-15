@@ -47,6 +47,22 @@
 				"defense" : 4,
 				"health" : 20
 			}
+		},
+		{
+			"name" : "Tired Omnem",
+			"rating" : "A",
+			"type" : "waifu",
+			"level" : 1,
+			"info" : "this is a rare tired omnem in the middle of the night",
+			"card_image" : "0004.png",
+			"sprite" : "0004",
+			"stats" : {
+				"strength" : 10,
+				"accuracy" : 10,
+				"evasion" : 10,
+				"defense" : 10,
+				"health" : 10
+			}
 		}
 	],
 	"monsters" : [
@@ -56,14 +72,193 @@
 			"type" : "monster",
 			"level" : 1,
 			"info" : "this is a commom crab",
-			"card_image" : "0001.png",
 			"sprite" : "0001",
 			"stats" : {
-				"strength" : 4,
-				"accuracy" : 2,
-				"evasion" : 2,
-				"defense" : 1,
+				"strength" : 2,
+				"accuracy" : 3,
+				"evasion" : 3,
+				"defense" : 2,
+				"health" : 26
+			}
+		},
+		{
+			"name" : "Green Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0002",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
 				"health" : 20
+			}
+		},
+		{
+			"name" : "Red Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0003",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Purple Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0004",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Yellow Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0005",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Dark Blue Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0006",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Orange Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0007",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Aqua Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0008",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Torquoise Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0009",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Gray Slime",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0010",
+			"stats" : {
+				"strength" : 1,
+				"accuracy" : 4,
+				"evasion" : 5,
+				"defense" : 3,
+				"health" : 20
+			}
+		},
+		{
+			"name" : "Reaper",
+			"rating" : "C",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0011",
+			"stats" : {
+				"strength" : 9,
+				"accuracy" : 5,
+				"evasion" : 5,
+				"defense" : 2,
+				"health" : 30
+			}
+		},
+		{
+			"name" : "Skeleton",
+			"rating" : "D",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0012",
+			"stats" : {
+				"strength" : 4,
+				"accuracy" : 4,
+				"evasion" : 2,
+				"defense" : 4,
+				"health" : 15
+			}
+		},
+		{
+			"name" : "Dryad",
+			"rating" : "C",
+			"type" : "monster",
+			"level" : 1,
+			"info" : "this is a commom crab",
+			"sprite" : "0013",
+			"stats" : {
+				"strength" : 7,
+				"accuracy" : 3,
+				"evasion" : 3,
+				"defense" : 3,
+				"health" : 12
 			}
 		}
 	],
@@ -90,6 +285,12 @@
 		{
 			"monster" : "Large Crab",
 			"drops" : ["Common Stick"]
+		}
+	],
+	"monster_appearances" : [
+		{
+			"map" : 0,
+			"spawns" : ["Crab", "Green Slime", "Yellow Slime", "Orange Slime", "Torquoise Slime"]
 		}
 	]
 }
