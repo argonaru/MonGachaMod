@@ -101,6 +101,7 @@ Game.functions = {
 			Game.global_vars.card_dictionary = Game.functions.ApplyCardClass(result.waifus.concat(result.monsters).concat(result.items));
 			Game.global_vars.recipes = result.recipes;
 			Game.global_vars.monster_drops = result.monster_drops;
+			Game.global_vars.monster_appearances = result.monster_appearances;
 			if(get_new_cards){
 				Game.global_vars.cards = Game.functions.ApplyCardClass([
 				Game.functions.GetCard("Britski Common"),
@@ -551,11 +552,11 @@ Game.functions = {
 		return cards.map(function(card, index_0){
 
 			card.stats = {
-				"strength" : card.stats.health 	+ Math.floor(card.stats.health * 0.8 * card.level),
-				"accuracy" :card.stats.accuracy + Math.floor(card.stats.accuracy * 0.8 * card.level),
-				"evasion" : card.stats.evasion 	+ Math.floor(card.stats.evasion * 0.8 * card.level),
-				"defense" : card.stats.defense 	+ Math.floor(card.stats.defense * 0.8 * card.level),
-				"health" : 	card.stats.health 	+ Math.floor(card.stats.health * 0.8 * card.level)
+				"strength" : card.stats.health 	+ Math.floor(card.stats.health * 0.1 * card.level),
+				"accuracy" :card.stats.accuracy + Math.floor(card.stats.accuracy * 0.1 * card.level),
+				"evasion" : card.stats.evasion 	+ Math.floor(card.stats.evasion * 0.1 * card.level),
+				"defense" : card.stats.defense 	+ Math.floor(card.stats.defense * 0.1 * card.level),
+				"health" : 	card.stats.health 	+ Math.floor(card.stats.health * 0.1 * card.level)
 			}
 
 			if(card.exp == undefined) card.exp = 0;
@@ -651,7 +652,7 @@ Game.functions = {
 					}else{
 						this.attackedText(attack_damage);
 					}
-					this.current_health = (this.current_health > attack_damage) ? Math.floor(this.current_health - attack_damage) : 0;
+					this.current_health = (this.current_health >= attack_damage + 1) ? Math.floor(this.current_health - Math.floor(attack_damage)) : 0;
 				}else{
 					this.missText();
 				}
@@ -1096,11 +1097,15 @@ Game.functions = {
 			Game.global_vars.scene_dat.battle.is_boss = true;
 			Game.global_vars.scene_dat.battle.zone = 15;
 			Game.global_vars.scene_dat.battle.in_battle = true;
-			Game.global_vars.scene_dat.battle.monsters = Game.functions.ApplyFightingCharacterClass(Array.apply(null, Array(5)).map(function(){
-				let card = Game.functions.GetCard("Crab");
-				card.level = Game.global_vars.scene_dat.battle.difficulty * Math.floor(Math.random() * 3);
+			//Game.global_vars.scene_dat.battle.monsters = Game.functions.ApplyFightingCharacterClass(Array.apply(null, Array(5)).map(function(){
+			//	let card = Game.functions.GetCard("Crab");
+			//	card.level = Game.global_vars.scene_dat.battle.difficulty * Math.floor(Math.random() * 3);
+			//	return card;
+			//}));
+			Game.global_vars.scene_dat.battle.monsters = Game.functions.ApplyFightingCharacterClass(Game.functions.GetMonstersFromMap(Game.global_vars.scene_dat.battle.map).map(function(card){
+				card.level = Game.global_vars.scene_dat.battle.difficulty * Math.floor(Math.random() * 6 + 3);
 				return card;
-			}));
+			}))
 			Game.functions.SwitchScene("battle");
 			return;
 		}
@@ -1109,11 +1114,15 @@ Game.functions = {
 		Game.global_vars.scene_dat.battle.is_boss = false;
 		Game.global_vars.scene_dat.battle.in_battle = true;
 		Game.global_vars.scene_dat.battle.zone = zone;
-		Game.global_vars.scene_dat.battle.monsters = Game.functions.ApplyFightingCharacterClass(Array.apply(null, Array(5)).map(function(){
-			let card = Game.functions.GetCard("Crab");
+		//Game.global_vars.scene_dat.battle.monsters = Game.functions.ApplyFightingCharacterClass(Array.apply(null, Array(5)).map(function(){
+		//	let card = Game.functions.GetCard("Crab");
+		//	card.level = Game.global_vars.scene_dat.battle.difficulty * (Math.floor(Math.random() * 2) + 1);
+		//	return card;
+		//}));
+		Game.global_vars.scene_dat.battle.monsters = Game.functions.ApplyFightingCharacterClass(Game.functions.GetMonstersFromMap(Game.global_vars.scene_dat.battle.map).map(function(card){
 			card.level = Game.global_vars.scene_dat.battle.difficulty * (Math.floor(Math.random() * 2) + 1);
 			return card;
-		}));
+		}))
 	
 		Game.functions.SwitchScene("battle");
 	},
@@ -1135,6 +1144,31 @@ Game.functions = {
 		if(!monsters_alive) return 1;
 		if(!waifus_alive) return 2;
 		return 0;
+	},
+	GetMonstersFromMap(map_no){
+		for(h in Game.global_vars.monster_appearances){
+			if(Game.global_vars.monster_appearances[h].map == map_no){
+				let spawns_0 = Game.global_vars.monster_appearances[h].spawns.map(function(card_name){
+					return Game.functions.GetCard(card_name);
+				});
+				let len = spawns_0.length;
+				for(let i = 0; i < 5 - len; i++){
+					spawns_0.push(Game.functions.GetCard("Crab"));
+				}
+				for(h in spawns_0){
+					if(spawns_0[h] == undefined) spawns_0[h] = Game.functions.GetCard("Crab");
+				}
+				return spawns_0;
+			} 
+		}
+		let spawns = [];
+		for(let i = 0; i < 5; i++){
+			let monster_card = Game.global_vars.card_dictionary[Math.floor(Game.global_vars.card_dictionary.length * Math.random())];
+			while(monster_card.type != "monster") monster_card = Game.global_vars.card_dictionary[Math.floor(Game.global_vars.card_dictionary.length * Math.random())];
+			spawns.push(monster_card);
+		}
+		console.log(spawns);
+		return spawns;
 	},
 	SwitchMap(direction){
 		switch(direction){
@@ -1249,5 +1283,6 @@ Game.global_vars = {
 	"card_dictionary" : [],
 	"time" : 0,
 	"randomidentifiers" : [],
+	"monster_appearances" : [],
 	"is_open" : true
 }
